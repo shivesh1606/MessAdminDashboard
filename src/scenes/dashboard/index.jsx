@@ -24,7 +24,12 @@ const Dashboard = () => {
   const [lineData, setLineData] = useState([]);
 
   const fetchconstData = async () => {
-    const response = await fetch(`http://127.0.0.1:8000/user/checkin/?last_7_days=true`);
+    const token = 'f5409ec9b09546174e31e3cbb1e667aeca71d952'
+    const response = await fetch(`http://127.0.0.1:8000/user/checkin/?last_7_days=true`,{
+    headers : {
+      'Content-Type': 'application/json',
+      'Authorization': `Token ${token}`
+    }});
     const rdata = await response.json();
     return rdata['data'];
 
