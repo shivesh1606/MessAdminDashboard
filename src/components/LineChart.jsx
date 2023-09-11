@@ -6,7 +6,6 @@ import { useEffect,useState } from "react";
 const LineChart = ({ isCustomLineColors = false, isDashboard = false,data }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   const [lineData, setLineData] = useState(data);
   if(lineData==undefined){
     setLineData(data2);
