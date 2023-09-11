@@ -1,23 +1,25 @@
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataContacts } from "../../data/mockData";
+// import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchStudentListAsync } from '../../redux/slices/studentListSlice';
+import { fetchTodaysDataAsync } from '../../redux/slices/todaySlice';
 
-const Contacts = () => {
+const TodaysData = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const dispatch = useDispatch();
-  const studentList = useSelector((state) => state.studentList);
+  const todaysData = useSelector((state) => state.todaysData);
+
+  console.log("todaysData: ", todaysData);
 
   useEffect(() => {
     console.log("dispatching................")
-    dispatch(fetchStudentListAsync());
+    dispatch(fetchTodaysDataAsync());
   }, [dispatch]);
 
   const columns = [
@@ -25,9 +27,9 @@ const Contacts = () => {
     { field: "rollNo", headerName: "Roll No." },
     { field: "name", headerName: "Name", flex: 1, cellClassName: "name-column--cell" },
     { field: "foodChoice", headerName: "Veg/Non-Veg", headerAlign: "left", align: "left" },
-    { field: "type", headerName: "Type", flex: 1 },
-    { field: "batch", headerName: "Batch", flex: 1 },
-    { field: "hall", headerName: "Hall", flex: 1 },
+    { field: "slot", headerName: "slot", flex: 1 },
+    { field: "date", headerName: "Date", flex: 1 },
+    // { field: "hall", headerName: "Hall", flex: 1 },
     // { field: "id", headerName: "ID", flex: 0.5 },
     // { field: "registrarId", headerName: "Roll No." },
     // {
@@ -69,12 +71,12 @@ const Contacts = () => {
     //   flex: 1,
     // },
   ];
-  
+
   return (
     <Box m="20px">
       <Header
-        title="Student Details"
-        subtitle="List of Students Registered for Mess"
+        title="CONTACTS"
+        subtitle="List of Contacts for Future Reference"
       />
       <Box
         m="40px 0 0 0"
@@ -109,7 +111,7 @@ const Contacts = () => {
         }}
       >
         <DataGrid
-          rows={studentList}
+          rows={todaysData}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
@@ -118,4 +120,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default TodaysData;
