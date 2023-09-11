@@ -4,27 +4,45 @@ import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchStudentListAsync } from '../../redux/slices/studentListSlice';
 
 const Contacts = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
+  const dispatch = useDispatch();
+  const studentList = useSelector((state) => state.studentList);
+
+  useEffect(() => {
+    console.log("dispatching................")
+    dispatch(fetchStudentListAsync());
+  }, [dispatch]);
+
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Roll No." },
-    {
-      field: "name",
-      headerName: "Name",
-      flex: 1,
-      cellClassName: "name-column--cell",
-    },
-    {
-      field: "age",
-      headerName: "Veg/Non-Veg",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
-    },
+    { field: "rollNo", headerName: "Roll No." },
+    { field: "name", headerName: "Name", flex: 1, cellClassName: "name-column--cell" },
+    { field: "foodChoice", headerName: "Veg/Non-Veg", headerAlign: "left", align: "left" },
+    { field: "type", headerName: "Type", flex: 1 },
+    { field: "batch", headerName: "Batch", flex: 1 },
+    { field: "hall", headerName: "Hall", flex: 1 },
+    // { field: "id", headerName: "ID", flex: 0.5 },
+    // { field: "registrarId", headerName: "Roll No." },
+    // {
+    //   field: "name",
+    //   headerName: "Name",
+    //   flex: 1,
+    //   cellClassName: "name-column--cell",
+    // },
+    // {
+    //   field: "age",
+    //   headerName: "Veg/Non-Veg",
+    //   type: "number",
+    //   headerAlign: "left",
+    //   align: "left",
+    // },
     // {
     //   field: "phone",
     //   headerName: "Phone Number",
@@ -91,7 +109,7 @@ const Contacts = () => {
         }}
       >
         <DataGrid
-          rows={mockDataContacts}
+          rows={studentList}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
