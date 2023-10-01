@@ -45,12 +45,8 @@ function App() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/geography" element={<Geography />} />
-<<<<<<< HEAD
               <Route path="/manage-students" element={<ManageStudents />} />
-              <Route path="/file-upload" element={<UploadCSV />} />
-=======
-              <Route path="/fileUpload" element={<FileUplaod />} />
->>>>>>> 46cd0f578a578eaf2d5ddc301700aef6010c92a5
+               <Route path="/file-upload" element={<UploadCSV />} /> 
             </Routes>
           </main>
         </div>

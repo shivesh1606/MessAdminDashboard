@@ -190,7 +190,6 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-<<<<<<< HEAD
             <Item
               title="Manage Students"
               to="/manage-students"
@@ -206,9 +205,6 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
-=======
-{/* 
->>>>>>> 46cd0f578a578eaf2d5ddc301700aef6010c92a5
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -216,7 +212,7 @@ const Sidebar = () => {
             >
               
               Charts
-            </Typography> */}
+            </Typography> 
             {/* <Item
               title="Bar Chart"
               to="/bar"
