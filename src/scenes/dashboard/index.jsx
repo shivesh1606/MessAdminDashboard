@@ -24,9 +24,15 @@ const Dashboard = () => {
   const [lineData, setLineData] = useState([]);
 
   const fetchconstData = async () => {
-    const response = await fetch(`http://127.0.0.1:8000/user/checkin/?last_7_days=true`);
+    const token = 'c55f79a70bd7585b524caa6cada7a6a57ca59676'
+    const response = await fetch(`http://127.0.0.1:8000/user/checkin/?last_7_days=true`,{
+    headers : {
+      'Content-Type': 'application/json',
+      'Authorization': `Token ${token}`
+    }});
     const rdata = await response.json();
-    return rdata['data'];
+    console.log("RDATA",rdata)
+    return rdata;
 
   }
   const getSixPrevDate = (i) => {
@@ -67,7 +73,9 @@ const Dashboard = () => {
     let currDateStr4 = getSixPrevDate(4);
     let currDateStr5 = getSixPrevDate(5);
     let currDateStr6 = getSixPrevDate(6);
+    console.log("Current Date",jsondata)
     Object.keys(jsondata).forEach(function (key) {
+      console.log("Key")
       if (jsondata[key]['slot']=='breakfast' && jsondata[key]['date'] == currDateStr) {
         breakfastCount += 1;
       }
@@ -86,6 +94,7 @@ const Dashboard = () => {
       setDinner(dinnerCount);
     
     });
+    console.log("Current Date")
     console.log("Breakfast Count")
     console.log(breakfastCount)
     console.log("Lunch Count")
@@ -238,9 +247,10 @@ const Dashboard = () => {
 
     ];
 
-    setLineData(mockLineData);
+    console.log(setLineData(mockLineData));
     console.log("Line Data")
     console.log(lineData)
+    
     console.log(mockLineData)
   }
   useEffect(() => {
@@ -248,6 +258,7 @@ const Dashboard = () => {
       if (breakfast === undefined ) {
         try {
           const data = await fetchconstData();
+          console.log("Data",data)
           setConstData(data);
         } catch (error) {
           console.error("Error fetching data:", error);
@@ -257,9 +268,11 @@ const Dashboard = () => {
   
     fetchData();
     console.log("******");
-  }, []);
-  
+  }, [lineData]);
 
+  useEffect(() => {
+    console.log("Line Data updated:", lineData);
+  }, [lineData]);
 
   return (
     <Box m="20px">

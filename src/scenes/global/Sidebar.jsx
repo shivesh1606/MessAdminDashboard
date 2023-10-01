@@ -141,12 +141,19 @@ const Sidebar = () => {
               setSelected={setSelected}
             /> */}
             <Item
-              title="Contacts Information"
+              title="Student Details"
               to="/contacts"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+            <Item
+              title= "Todays Data"
+              to="/todaysData"
+              icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              />
             {/* <Item
               title="Invoices Balances"
               to="/invoices"
@@ -183,6 +190,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+<<<<<<< HEAD
             <Item
               title="Manage Students"
               to="/manage-students"
@@ -198,6 +206,9 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
+=======
+{/* 
+>>>>>>> 46cd0f578a578eaf2d5ddc301700aef6010c92a5
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -205,14 +216,14 @@ const Sidebar = () => {
             >
               
               Charts
-            </Typography>
-            <Item
+            </Typography> */}
+            {/* <Item
               title="Bar Chart"
               to="/bar"
               icon={<BarChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             {/* <Item
               title="Pie Chart"
               to="/pie"
@@ -220,13 +231,13 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             /> */}
-            <Item
+            {/* <Item
               title="Line Chart"
               to="/line"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             {/* <Item
               title="Geography Chart"
               to="/geography"

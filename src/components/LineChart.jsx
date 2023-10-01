@@ -7,19 +7,18 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false,data }) => 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [lineData, setLineData] = useState(data);
-  if(lineData==undefined){
-    setLineData(data2);
-  }
+  // Remove the state initialization here
+  // const [lineData, setLineData] = useState(data);
 
+  // Use the data prop directly and fallback to data2 if it's undefined
+  const lineData = data || data2;
 
   useEffect(() => {
-    console.log("lineData",lineData);
-
-    if (lineData==undefined) {
-      setLineData(data2);
-    }
-  }, [lineData]);
+    // You can remove this part since we're not setting lineData as state initially
+    // if (lineData == undefined) {
+    //   setLineData(data2);
+    // }
+  }, [data]);
   return (
     <ResponsiveLine
       data={lineData}
