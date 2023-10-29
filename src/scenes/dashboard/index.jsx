@@ -1,6 +1,6 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import { mockTransactions } from "../../data/mockData";
+// import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import LunchDiningIcon from '@mui/icons-material/LunchDining';
@@ -8,10 +8,10 @@ import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import FreeBreakfastIcon from '@mui/icons-material/FreeBreakfast';
 import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
-import GeographyChart from "../../components/GeographyChart";
+// import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
-import ProgressCircle from "../../components/ProgressCircle";
+// import ProgressCircle from "../../components/ProgressCircle";
 
 import { useEffect, useState } from "react";
 const Dashboard = () => {
@@ -24,7 +24,7 @@ const Dashboard = () => {
   const [lineData, setLineData] = useState([]);
 
   const fetchconstData = async () => {
-    const token = 'c55f79a70bd7585b524caa6cada7a6a57ca59676'
+    const token = 'f5409ec9b09546174e31e3cbb1e667aeca71d952'
     const response = await fetch(`http://127.0.0.1:8000/user/checkin/?last_7_days=true`,{
     headers : {
       'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const Dashboard = () => {
     let count = 0;
     Object.keys(jsondata).forEach(function (key) {
 
-      if (jsondata[key]['slot']==mealType && jsondata[key]['date'] == date) {
+      if (jsondata[key]['slot']===mealType && jsondata[key]['date'] === date) {
         console.log("Meal Type")
         console.log(mealType)
         console.log("Date")
@@ -76,16 +76,16 @@ const Dashboard = () => {
     console.log("Current Date",jsondata)
     Object.keys(jsondata).forEach(function (key) {
       console.log("Key")
-      if (jsondata[key]['slot']=='breakfast' && jsondata[key]['date'] == currDateStr) {
+      if (jsondata[key]['slot']==='breakfast' && jsondata[key]['date'] === currDateStr) {
         breakfastCount += 1;
       }
-      if (jsondata[key]['slot']=='lunch' && jsondata[key]['date'] == currDateStr) {
+      if (jsondata[key]['slot']==='lunch' && jsondata[key]['date'] === currDateStr) {
         lunchCount += 1;
       }
-      if (jsondata[key]['slot']=='snacks' && jsondata[key]['date'] == currDateStr) {
+      if (jsondata[key]['slot']==='snacks' && jsondata[key]['date'] === currDateStr) {
         snacksCount += 1;
       }
-      if (jsondata[key]['slot']=='dinner' && jsondata[key]['date'] == currDateStr) {
+      if (jsondata[key]['slot']==='dinner' && jsondata[key]['date'] === currDateStr) {
         dinnerCount += 1;
       }
       setBreakfast(breakfastCount);
@@ -268,7 +268,7 @@ const Dashboard = () => {
   
     fetchData();
     console.log("******");
-  }, [lineData]);
+  }, []);
 
   useEffect(() => {
     console.log("Line Data updated:", lineData);
@@ -382,7 +382,7 @@ const Dashboard = () => {
         </Box>
 
         {/* ROW 2 */}
-        <Box
+        {/* <Box
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
@@ -421,7 +421,7 @@ const Dashboard = () => {
           <Box height="250px" m="-20px 0 0 0">
             <LineChart isDashboard={true}  data={lineData}/>
           </Box>
-        </Box>
+        </Box> */}
         {/* <Box
           gridColumn="span 4"
           gridRow="span 2"

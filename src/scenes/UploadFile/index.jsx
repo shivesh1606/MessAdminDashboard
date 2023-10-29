@@ -10,6 +10,7 @@ const UploadCSV = () => {
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
   };
+  const token = localStorage.getItem('admintoken');
 
   const handleUpload = () => {
     if (selectedFile) {
@@ -19,6 +20,9 @@ const UploadCSV = () => {
       fetch('http://localhost:8000/user/upload/', {
         method: 'POST',
         body: formData,
+        headers: {
+          "Authorization": `Token ${token}`
+        }
       })
         .then(response => response.json())
         .then(data => {

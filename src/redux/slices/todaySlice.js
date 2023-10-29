@@ -5,8 +5,8 @@ export const fetchTodaysDataAsync = createAsyncThunk(
   'todaysData/fetchTodaysData',
   async () => {
     console.log('fetchTodaysDataAsync');
-    localStorage.setItem('token', '94ff39777088055211388c1349f7b07a6fadfdab');
-    const token = localStorage.getItem('token');
+    localStorage.setItem('admintoken', 'f5409ec9b09546174e31e3cbb1e667aeca71d952');
+    const token = localStorage.getItem('admintoken');
     const response = await getSTodaysData(token);
     return response;
   }

@@ -26,8 +26,8 @@ const Contacts = () => {
     { field: "name", headerName: "Name", flex: 1, cellClassName: "name-column--cell" },
     { field: "foodChoice", headerName: "Veg/Non-Veg", headerAlign: "left", align: "left" },
     { field: "type", headerName: "Type", flex: 1 },
-    { field: "batch", headerName: "Batch", flex: 1 },
-    { field: "roomNumber", headerName: "Room Number", flex: 1 }, //roomNumber instead of Hall
+    { field: "roomNo", headerName: "Room Number", flex: 1 }, //roomNumber instead of Hall
+    { field: "status", headerName: "Status", flex: 1 },
     // { field: "id", headerName: "ID", flex: 0.5 },
     // { field: "registrarId", headerName: "Roll No." },
     // {

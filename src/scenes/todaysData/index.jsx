@@ -27,6 +27,7 @@ const TodaysData = () => {
     { field: "rollNo", headerName: "Roll No." },
     { field: "name", headerName: "Name", flex: 1, cellClassName: "name-column--cell" },
     { field: "foodChoice", headerName: "Veg/Non-Veg", headerAlign: "left", align: "left" },
+    { field: "roomNo", headerName: "Room No.", flex: 1},
     { field: "slot", headerName: "slot", flex: 1 },
     { field: "date", headerName: "Date", flex: 1 },
     // { field: "hall", headerName: "Hall", flex: 1 },

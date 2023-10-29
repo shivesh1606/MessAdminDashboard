@@ -16,7 +16,7 @@ function FileUpload() {
     // Handle file upload logic here
     if (selectedFile) {
       // You can send the selectedFile to your server or perform other actions.
-      const token = 'c55f79a70bd7585b524caa6cada7a6a57ca59676';
+      const token = 'f5409ec9b09546174e31e3cbb1e667aeca71d952';
 
       var myHeaders = new Headers();
       myHeaders.append("Authorization", `Token ${token}`);

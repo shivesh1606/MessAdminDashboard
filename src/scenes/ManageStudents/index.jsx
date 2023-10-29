@@ -16,7 +16,7 @@ const ManageStudents = () => {
       method: 'DELETE', 
       url: apiUrl,
       headers: {
-        Authorization: `Bearer ${adminToken}`
+        Authorization: `Token ${adminToken}`
       }
     })
     .then(response => {
