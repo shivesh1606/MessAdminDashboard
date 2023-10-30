@@ -14,6 +14,7 @@ import Line from "./scenes/line";
 import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
 import ManageStudents from "./scenes/ManageStudents";
+import StudentMealTable from "./scenes/StudentMealStat";
 import UploadCSV from "./scenes/UploadFile";
 import Geography from "./scenes/geography";
 import { CssBaseline, ThemeProvider } from "@mui/material";
@@ -47,6 +48,7 @@ function App() {
               <Route path="/geography" element={<Geography />} />
               <Route path="/manage-students" element={<ManageStudents />} />
                <Route path="/file-upload" element={<UploadCSV />} /> 
+               <Route path="/meal-stat" element={<StudentMealTable />} /> 
             </Routes>
           </main>
         </div>
